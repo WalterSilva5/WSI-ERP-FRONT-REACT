@@ -1,0 +1,76 @@
+$wsi-primary: #01DC8D;
+$wsi-primary-dark: #005838;
+$wsi-secondary: #0CA5F2;
+$wsi-secondary-dark: #00527a;
+$wsi-shadow: 3px 3px 1px;
+$wsi-shadow-btn: 3px 3px 4px;
+$wsi-shadow-btn-hvr: -2px 0px 3px;
+$wsi-shadow-light: 3px 3px 1px white;
+.wsi-btn-primary,
+button {
+    background-color: $wsi-primary;
+    box-shadow: $wsi-shadow-btn;
+    font-weight: bold;
+    transition: 1s;
+    &:hover {
+        background-color: $wsi-primary-dark;
+        color: white;
+        box-shadow: $wsi-shadow-btn-hvr;
+        transition: 1s;
+    }
+    &:active {
+        box-shadow: 3px 3px 4px red;
+    }
+}
+
+.wsi-btn-menu {
+    font-size: 13px;
+    width: 85%;
+    height: 60px;
+    margin: 5px;
+    margin-top: 15px;
+    transition: 1s;
+}
+
+.wsi-btn-menu-shadow {
+    box-shadow: $wsi-shadow-light;
+    box-shadow: $wsi-shadow-light;
+    &:hover {
+        box-shadow: 1px 1px 1px 4px rgba(255, 255, 255, 0.37);
+        transition: 1s;
+    }
+}
+
+.wsi-btn-secondary {
+    font-weight: bold;
+    background-color: $wsi-secondary;
+    &:hover {
+        background-color: $wsi-secondary-dark;
+        color: white;
+    }
+}
+
+navbar,
+.navbar,
+nav {
+    background-color: black;
+}
+
+.wsi-fade {
+    animation: fadeIn;
+    animation-duration: .5s;
+}
+
+.corpo-margem {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.modal-dialogo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
