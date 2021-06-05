@@ -121,7 +121,7 @@ export default {
     fechar(event) {
       Object.assign(this.$data, dataDefaults());
       this.$emit("abrirModalCadastroProduto");
-      this.$router.replace("/vendas")
+      this.$store.dispatch("fetchProdutos");
     },
     cadastrar() {
       var result = this.$apiprodutos.cadastrar({

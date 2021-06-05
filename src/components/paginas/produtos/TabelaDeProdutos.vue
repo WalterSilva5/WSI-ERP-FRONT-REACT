@@ -1,3 +1,4 @@
+import { mapState } from 'vuex';
 <template>
   <div>
     <table class="table table-striped">
@@ -26,8 +27,23 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  props: ["produtos"],
+  data() {
+    return {
+      produtos: this.$store.state.produtos,
+    };
+  },
+  computed: {
+    ...mapState({
+      produtos_api: "produtos",
+    }),
+  },
+  watch: {
+    produtos_api(newValue, oldValue) {
+      this.produtos = newValue;
+    },
+  },
 };
 </script>
 

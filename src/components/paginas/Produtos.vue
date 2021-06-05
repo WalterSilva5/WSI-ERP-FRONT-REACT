@@ -18,7 +18,7 @@
     />
   </div>
   <div>
-    <tabela-de-produtos :produtos="produtos" />
+    <tabela-de-produtos />
   </div>
 </template>
 
@@ -35,22 +35,13 @@ export default {
   data() {
     return {
       modalCadastroProdutoAtivo: false,
-      produtos: this.$store.state.produtos,
-      forceReload: 0,
     };
   },
   methods: {
     abrirModalCadastroProduto(state = false) {
       this.modalCadastroProdutoAtivo = state;
-      this.$store.dispatch("fetchProdutos");
-      this.produtos = this.$store.state.produtos;
     },
-  },
-  watch: {
-    produtos(newProduto) {
-      this.$forceUpdate();
-    },
-  },
+  }
 };
 </script>
 
