@@ -2,39 +2,28 @@ import { createStore } from "vuex";
 import axios from "axios";
 
 const state = {
-    idade: 24,
+    produtosDaVenda: []
 };
 
 const getters = {
-    getIdade(state) {
-        return "idade: " + state.idade;
-    },
-    getNome(state) {
-        return "nome: " + state.nome;
+    getProdutos(state) {
+        return state.getProdutos;
     },
 };
 
 const mutations = {
-    setNome(state, novoNome) {
-        state.nome = novoNome;
-    },
-
     setProdutos(state, produtos) {
         state.produtos = produtos;
+    },
+    addProdutosDaVenda(state, produto) {
+        state.produtosDaVenda = [...state.produtosDaVenda, {...produto }]
     }
 };
 
 const actions = {
-    changeNome(context, dados) {
-        context.commit("setNome", dados);
+    addProdutosDaVenda(context, produto) {
+        context.commit('addProdutosDaVenda', {...produto })
     },
-
-    defaultnome(context) {
-        axios.get("https://api.github.com/users/waltersilva5").then((response) => {
-            context.commit("setNome", response.data.login);
-        });
-    },
-
     fetchProdutos(context) {
         axios.get("http://localhost:8595/produtos/")
             .then((response) => {
