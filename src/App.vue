@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row col-12 corpo">
-      <wsi-sidebar class="col-1 nav corpo" />
-      <wsi-corpo class="col-11 corpo" />
+    <div class="row col-12 m-0 p-0">
+      <wsi-sidebar class="col-1 m-0 p-md-0 p-sm-n5 nav" />
+      <wsi-corpo class="col-md-11 p-md-0 m-0 p-sm-n5"/>
     </div>
   </div>
 </template>
@@ -12,9 +12,6 @@ import WsiSidebar from "./components/WsiSidebar.vue";
 import WsiCorpo from "./components/WsiCorpo.vue";
 import WsiFooter from "./components/WsiFooter.vue";
 import "./assets/styles.scss"
-import {$, jQuery} from 'jquery'
-
-
 export default {
   name: "App",
   components: {
@@ -23,14 +20,11 @@ export default {
     WsiCorpo,
   },
   created() {
-    this.$store.dispatch("defaultnome");
+    this.$store.dispatch("fetchProdutos");
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.corpo{
-  margin: 0 !important;
-  padding: 0 !important;
-}
+
 </style>

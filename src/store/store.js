@@ -1,7 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
 
-
 const state = {
     idade: 24,
 };
@@ -19,6 +18,10 @@ const mutations = {
     setNome(state, novoNome) {
         state.nome = novoNome;
     },
+
+    setProdutos(state, produtos) {
+        state.produtos = produtos;
+    }
 };
 
 const actions = {
@@ -27,10 +30,17 @@ const actions = {
     },
 
     defaultnome(context) {
-        axios
-            .get("https://api.github.com/users/waltersilva5")
-            .then(response => {
-                context.commit("setNome", response.data.login)
+        axios.get("https://api.github.com/users/waltersilva5").then((response) => {
+            context.commit("setNome", response.data.login);
+        });
+    },
+
+    fetchProdutos(context) {
+        axios.get("http://localhost:8595/produtos/")
+            .then((response) => {
+                context.commit("setProdutos", response.data)
+            }).catch((error) => {
+                console.log(error)
             })
     }
 };

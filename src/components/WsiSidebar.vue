@@ -2,11 +2,9 @@
   <div>
     <div>
       <div
-        class="wrapper nav justify-content-center text-center"
-        id="wsi-navbar"
+        class="justify-content-center text-center d-flex justify-content-evenly wsi-navbar"
       >
         <!-- Sidebar -->
-        <nav id="sidebar">
           <div class="sidebar-header">
             <router-link to="/vendas"
               ><button
@@ -22,16 +20,13 @@
                 PRODUTOS
               </button></router-link
             >
-            <div class="mt-5">
-              <button
+            <button
                 @click="fullScreen"
-                class="btn wsi-btn-primary wsi-btn-menu wsi-btn-menu-shadow mt-5"
+                class="btn wsi-btn-primary wsi-btn-menu wsi-btn-menu-shadow btn-tela"
               >
                 TELA CHEIA
               </button>
-            </div>
           </div>
-        </nav>
       </div>
     </div>
   </div>
@@ -48,10 +43,10 @@ export default {
     fullScreen() {
       if (this.telaCheia == false){
         this.telaCheia = true
-        document.body.webkitRequestFullScreen(); 
+        document.getElementById("app").requestFullscreen(); 
       }else{
         this.telaCheia = false;
-        document.bodyt.exitFullscreen()
+        document.exitFullscreen()
       }
     }
   },
@@ -59,7 +54,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#wsi-navbar {
-  min-height: 720px;
+.wsi-navbar {
+height:100vh;
+background-color: black;
+}
+.btn-tela{
+  margin-top: 100%;
+  margin-bottom: 0;
+  float: inline-end;
 }
 </style>

@@ -1,16 +1,42 @@
-$wsi-primary: #01DC8D;
+$wsi-primary: #01dc8d;
 $wsi-primary-dark: #005838;
-$wsi-secondary: #0CA5F2;
+$wsi-secondary: #0ca5f2;
 $wsi-secondary-dark: #00527a;
-$wsi-shadow: 3px 3px 1px;
+$wsi-shadow: 1px 1px 1px;
 $wsi-shadow-btn: 3px 3px 4px;
 $wsi-shadow-btn-hvr: -2px 0px 3px;
 $wsi-shadow-light: 3px 3px 1px white;
-.wsi-btn-primary,
-button {
+$wsi-border: 1px solid rgba(0, 0, 0, 0.274);
+$wsi-border-radius: 5px;
+@mixin wsi-shadow {
+    box-shadow: $wsi-shadow;
+}
+
+@mixin wsi-border {
+    border-radius: $wsi-border-radius;
+    border: $wsi-border;
+}
+
+.wsi-container {
+    @include wsi-border;
+    @include wsi-shadow;
+}
+
+@mixin wsi-btn-menu-shadow {
+    box-shadow: $wsi-shadow-light;
+    &:hover {
+        box-shadow: 1px 1px 1px 4px rgba(255, 255, 255, 0.37);
+        transition: 1s;
+    }
+}
+
+.wsi-btn-menu-shadow {
+    @include wsi-btn-menu-shadow;
+}
+
+@mixin wsi-btn {
     background-color: $wsi-primary;
     box-shadow: $wsi-shadow-btn;
-    font-weight: bold;
     transition: 1s;
     &:hover {
         background-color: $wsi-primary-dark;
@@ -23,26 +49,27 @@ button {
     }
 }
 
+.btn,
+label {
+    font-weight: bold;
+}
+
+.wsi-btn-primary,
+button {
+    @include wsi-btn;
+}
+
 .wsi-btn-menu {
+    @include wsi-btn;
+    @include wsi-btn-menu-shadow;
     font-size: 13px;
     width: 85%;
     height: 60px;
     margin: 5px;
     margin-top: 15px;
-    transition: 1s;
-}
-
-.wsi-btn-menu-shadow {
-    box-shadow: $wsi-shadow-light;
-    box-shadow: $wsi-shadow-light;
-    &:hover {
-        box-shadow: 1px 1px 1px 4px rgba(255, 255, 255, 0.37);
-        transition: 1s;
-    }
 }
 
 .wsi-btn-secondary {
-    font-weight: bold;
     background-color: $wsi-secondary;
     &:hover {
         background-color: $wsi-secondary-dark;
@@ -58,7 +85,7 @@ nav {
 
 .wsi-fade {
     animation: fadeIn;
-    animation-duration: .5s;
+    animation-duration: 0.5s;
 }
 
 .corpo-margem {
@@ -73,4 +100,8 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+::backdrop {
+    background-color: white;
 }

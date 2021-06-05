@@ -1,9 +1,9 @@
 <template>
-  <div class="col-12 container-fluid corpo-margem">
+  <div class="col-12 container-fluid corpo-margem wsi-fade">
     <header-top>
       <div>
         <button
-          class="btn wsi-btn-primary wsi-btn-menu-shadow"
+          class="btn wsi-btn-secondary wsi-btn-menu-shadow"
           data-toggle="modal"
           data-target="#modalVendas"
           @click="abrirModalVendas(true)"
