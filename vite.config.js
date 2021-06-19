@@ -1,7 +1,12 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
+/* eslint-disable import/no-extraneous-dependencies */
+import { defineConfig } from 'vite';
+import react from 'vite-preset-react';
 
 export default defineConfig({
-    plugins: [vue()]
-})
+  plugins: [
+    react({
+      removeDevtoolsInProd: true,
+      injectReact: true,
+    }),
+  ],
+});

@@ -1,21 +1,3 @@
-
-* {
-    user-select: none;
-    transition: 0.5s;
-    &:hover {
-        transition: 0.5s;
-    }
-}
-
-img {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-select: none;
-}
-
-$wsi-black: rgb(30, 30, 30);
 $wsi-primary: #01dc8d;
 $wsi-primary-dark: #005838;
 $wsi-secondary: #0ca5f2;
@@ -26,8 +8,6 @@ $wsi-shadow-btn-hvr: -2px 0px 3px;
 $wsi-shadow-light: 3px 3px 1px white;
 $wsi-border: 1px solid rgba(0, 0, 0, 0.274);
 $wsi-border-radius: 5px;
-
-
 @mixin wsi-shadow {
     box-shadow: $wsi-shadow;
 }
@@ -64,12 +44,14 @@ $wsi-border-radius: 5px;
         box-shadow: $wsi-shadow-btn-hvr;
         transition: 1s;
     }
+    &:active {
+        box-shadow: 3px 3px 4px red;
+    }
 }
 
 .btn,
 label {
     font-weight: bold;
-    align-content:middle;
 }
 
 .wsi-btn-primary,
@@ -80,15 +62,11 @@ button {
 .wsi-btn-menu {
     @include wsi-btn;
     @include wsi-btn-menu-shadow;
-    font-size: 1em;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;
-    display: flex;
-    margin-left: 8px;
+    font-size: 13px;
+    width: 85%;
     height: 60px;
+    margin: 5px;
     margin-top: 15px;
-    width: 95%;
 }
 
 .wsi-btn-secondary {
@@ -126,8 +104,4 @@ nav {
 
 ::backdrop {
     background-color: white;
-}
-
-.wsi-black{
-    background-color: $wsi-black;
 }

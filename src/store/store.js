@@ -1,44 +1,26 @@
-import { createStore } from "vuex";
-import axios from "axios";
+import {
+  createSlice, configureStore,
+} from '@reduxjs/toolkit';
 
-const state = {
-    produtosDaVenda: []
+const produtoState = {
+  produtos: [],
 };
 
-const getters = {
-    getProdutos(state) {
-        return state.getProdutos;
+const produtoSlice = createSlice({
+  name: 'produtoSlice',
+  initialState: produtoState,
+  reducers: {
+    adicionarProduto(state, action) {
+      // eslint-disable-next-line no-param-reassign
+      state.produtos = action.payload;
     },
-};
-
-const mutations = {
-    setProdutos(state, produtos) {
-        state.produtos = produtos;
-    },
-    addProdutosDaVenda(state, produto) {
-        state.produtosDaVenda = [...state.produtosDaVenda, {...produto }]
-    }
-};
-
-const actions = {
-    addProdutosDaVenda(context, produto) {
-        context.commit('addProdutosDaVenda', {...produto })
-    },
-    fetchProdutos(context) {
-        axios.get("http://localhost:8595/produtos/")
-            .then((response) => {
-                context.commit("setProdutos", response.data)
-            }).catch((error) => {
-                console.log(error)
-            })
-    }
-};
-
-const store = createStore({
-    state,
-    getters,
-    mutations,
-    actions,
+  },
 });
+
+const store = configureStore({
+  reducer: { produtoState: produtoSlice.reducer },
+});
+
+export const produtoActions = produtoSlice.actions;
 
 export default store;
